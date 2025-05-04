@@ -1,4 +1,6 @@
 import streamlit as st
+st.set_page_config(page_title="Sponsor Admin Onboarding", layout="centered")
+
 import json
 import os
 
@@ -14,7 +16,6 @@ def save_accounts(accounts):
     with open(SPONSOR_DB, "w") as f:
         json.dump(accounts, f, indent=2)
 
-st.set_page_config(page_title="Sponsor Admin Onboarding", layout="centered")
 st.title("👥 Add a New Sponsor Account")
 
 accounts = load_accounts()
@@ -33,7 +34,6 @@ with st.form("onboard_form"):
             save_accounts(accounts)
             st.success(f"Sponsor '{name}' added successfully.")
 
-# Optional: show all current accounts
 st.subheader("Current Sponsors")
 for email, data in accounts.items():
     st.markdown(f"- **{data['name']}** ({email})")

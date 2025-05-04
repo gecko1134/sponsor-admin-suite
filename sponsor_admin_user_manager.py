@@ -1,4 +1,6 @@
 import streamlit as st
+st.set_page_config(page_title="Sponsor User Manager", layout="wide")
+
 import json
 import os
 
@@ -14,7 +16,6 @@ def save_accounts(accounts):
     with open(SPONSOR_DB, "w") as f:
         json.dump(accounts, f, indent=2)
 
-st.set_page_config(page_title="Sponsor User Manager", layout="wide")
 st.title("🔐 Sponsor Account Manager")
 
 accounts = load_accounts()
