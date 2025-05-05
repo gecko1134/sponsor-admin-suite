@@ -31,6 +31,7 @@ else:
         "Pricing Calculator",
         "Contract Generator",
         "Presentation Mode",
+        "Creative Plan Generator",
         "Logout"
     ])
 
@@ -69,3 +70,7 @@ else:
     elif section == "Presentation Mode":
         import sponsor_presentation_mode
         sponsor_presentation_mode.run()
+
+    elif section == "Creative Plan Generator":
+        import creative_plan_generator
+        creative_plan_generator.run()

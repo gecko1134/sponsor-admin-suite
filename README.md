@@ -2,12 +2,13 @@
 
 [![Launch Sponsor Admin Suite](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gecko1134-sponsor-admin-suite.streamlit.app)
 
-This admin suite supports:
-- Sponsor onboarding and management
-- AI-powered pricing with market comparison
-- Presentation Mode with smart bundle suggestions
-- Contract generation and analytics
-- Inventory tracking and token-based access
+This admin suite includes:
+- Secure login + admin dashboard
+- Sponsor onboarding and account manager
+- AI-powered pricing and market comparison
+- Inventory logic with live claim tracking
+- Creative Plan Generator for flexible proposals
+- Contract generation and analytics dashboard
 
 ## Run the App
 
@@ -16,6 +17,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Admin Login
+## Login
 - Username: `admin`
 - Password: `secure123`
