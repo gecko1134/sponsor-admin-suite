@@ -1,39 +1,40 @@
 import streamlit as st
-st.set_page_config(page_title="Sponsor Admin Onboarding", layout="centered")
-
 import json
 import os
 
-SPONSOR_DB = "sponsor_accounts.json"
+def run():
+    st.set_page_config(page_title="Sponsor Admin Onboarding", layout="centered")
 
-def load_accounts():
-    if os.path.exists(SPONSOR_DB):
-        with open(SPONSOR_DB, "r") as f:
-            return json.load(f)
-    return {}
+    SPONSOR_DB = "sponsor_accounts.json"
 
-def save_accounts(accounts):
-    with open(SPONSOR_DB, "w") as f:
-        json.dump(accounts, f, indent=2)
+    def load_accounts():
+        if os.path.exists(SPONSOR_DB):
+            with open(SPONSOR_DB, "r") as f:
+                return json.load(f)
+        return {}
 
-st.title("👥 Add a New Sponsor Account")
+    def save_accounts(accounts):
+        with open(SPONSOR_DB, "w") as f:
+            json.dump(accounts, f, indent=2)
 
-accounts = load_accounts()
+    st.title("👥 Add a New Sponsor Account")
 
-with st.form("onboard_form"):
-    email = st.text_input("Sponsor Email")
-    name = st.text_input("Sponsor Name")
-    password = st.text_input("Temporary Password")
-    submitted = st.form_submit_button("Add Sponsor")
+    accounts = load_accounts()
 
-    if submitted:
-        if email in accounts:
-            st.warning("That email is already registered.")
-        else:
-            accounts[email] = {"name": name, "password": password}
-            save_accounts(accounts)
-            st.success(f"Sponsor '{name}' added successfully.")
+    with st.form("onboard_form"):
+        email = st.text_input("Sponsor Email")
+        name = st.text_input("Sponsor Name")
+        password = st.text_input("Temporary Password")
+        submitted = st.form_submit_button("Add Sponsor")
 
-st.subheader("Current Sponsors")
-for email, data in accounts.items():
-    st.markdown(f"- **{data['name']}** ({email})")
+        if submitted:
+            if email in accounts:
+                st.warning("That email is already registered.")
+            else:
+                accounts[email] = {"name": name, "password": password}
+                save_accounts(accounts)
+                st.success(f"Sponsor '{name}' added successfully.")
+
+    st.subheader("Current Sponsors")
+    for email, data in accounts.items():
+        st.markdown(f"- **{data['name']}** ({email})")
