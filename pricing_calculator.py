@@ -18,6 +18,8 @@ def calculate_sponsorship_price(asset_type, location, base_value, impressions, e
         "Bronze": 1.0,
         "Silver": 1.2,
         "Gold": 1.5,
+        "Platinum": 2.5,
+        "Custom": 2.7,
         "Presenting": 2.0,
         "Exclusive Naming": 3.0,
         "Standard": 1.1
