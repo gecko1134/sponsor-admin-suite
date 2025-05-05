@@ -14,8 +14,8 @@ def run():
         base_value = st.number_input("Base Value ($)", value=10000, step=100)
         impressions = st.number_input("Estimated Impressions", value=250000, step=10000)
         exclusivity_level = st.slider("Exclusivity Level (0 = Shared, 5 = Fully Exclusive)", 0, 5, value=3)
-        duration_months = st.number_input("Duration (months)", min_value=1, max_value=36, value=6)
-        tier = st.selectbox("Sponsorship Tier", ["Bronze", "Silver", "Gold", "Presenting", "Exclusive Naming"])
+        duration_months = st.number_input("Duration (months)", min_value=1, max_value=240, value=12)
+        tier = st.selectbox("Sponsorship Tier", ["Bronze", "Silver", "Gold", "Platinum", "Presenting", "Exclusive Naming"])
         submitted = st.form_submit_button("Calculate Price")
 
     if submitted:
@@ -39,7 +39,7 @@ def run():
                 st.write(f"**Position vs Market:** {val}")
             else:
                 st.write(f"**{key}:** {val}")
-        
+
         if result["Recommendation"].startswith("Reject"):
             st.error(result["Recommendation"])
         elif result["Recommendation"].startswith("Revise"):

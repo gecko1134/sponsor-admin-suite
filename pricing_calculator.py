@@ -3,14 +3,25 @@ import pandas as pd
 market_avg = {
     "Dome Naming Rights": 50000,
     "Field Naming Rights": 30000,
-    "Scoreboard Banner": 7500,
+    "Scoreboard Ad Panel": 10000,
     "Website Banner": 5000,
     "Email Footer": 1500,
-    "Social Media Post": 1200,
-    "Concession Sign": 2000,
-    "Stadium Banner": 4500,
-    "Fence Banner": 3500,
-    "Lobby Wall Banner": 6000
+    "Social Media Series Sponsor": 12000,
+    "Concession Stand Signage": 3500,
+    "Stadium Wall Banner": 4000,
+    "Bench Sponsor": 2000,
+    "Golf Cart Branding": 3000,
+    "Trailhead Signage": 2500,
+    "Batting Cage Naming": 7500,
+    "Team Suite Sponsor": 5000,
+    "Workout Facility Sponsor": 9000,
+    "Lobby Wall Banner": 4000,
+    "Mobile App Banner Ad": 2500,
+    "Coach Shirt Sponsor": 1500,
+    "Event Tent Branding": 1800,
+    "Walking Trail Signs": 1000,
+    "Tournament Program Full Page Ad": 3500,
+    "Esports Suite Naming": 8500
 }
 
 def calculate_sponsorship_price(asset_type, location, base_value, impressions, exclusivity_level, duration_months, tier="Standard"):
@@ -19,7 +30,6 @@ def calculate_sponsorship_price(asset_type, location, base_value, impressions, e
         "Silver": 1.2,
         "Gold": 1.5,
         "Platinum": 2.5,
-        "Custom": 2.7,
         "Presenting": 2.0,
         "Exclusive Naming": 3.0,
         "Standard": 1.1
@@ -41,7 +51,6 @@ def calculate_sponsorship_price(asset_type, location, base_value, impressions, e
     adjusted_price = base_value * multiplier * impression_factor * exclusivity_factor * duration_factor
 
     market_price = market_avg.get(asset_type, base_value)
-    difference = adjusted_price - market_price
     comparison = round((adjusted_price - market_price) / market_price * 100, 1)
 
     recommendation = "Accept"
@@ -54,7 +63,7 @@ def calculate_sponsorship_price(asset_type, location, base_value, impressions, e
     elif exclusivity_level >= 4 and tier not in ["Exclusive Naming", "Presenting"]:
         recommendation = "Revise – Tier Conflict"
 
-    summary = {
+    return {
         "Asset Type": asset_type,
         "Location": location,
         "Base Value": base_value,
@@ -67,5 +76,3 @@ def calculate_sponsorship_price(asset_type, location, base_value, impressions, e
         "Comparison to Market": f"{comparison:+.1f}%",
         "Recommendation": recommendation
     }
-
-    return summary

@@ -2,51 +2,127 @@
   "Dome Naming Rights": {
     "max": 1,
     "exclusive": true,
-    "impressions": 1000000
+    "impressions": 1000000,
+    "category": "Facility"
   },
   "Field Naming Rights": {
+    "max": 4,
+    "exclusive": true,
+    "impressions": 500000,
+    "category": "Facility"
+  },
+  "Batting Cage Naming": {
     "max": 2,
     "exclusive": true,
-    "impressions": 500000
+    "impressions": 50000,
+    "category": "Facility"
   },
-  "Scoreboard Banner": {
-    "max": 3,
-    "exclusive": false,
-    "impressions": 100000
+  "Workout Facility Sponsor": {
+    "max": 1,
+    "exclusive": true,
+    "impressions": 75000,
+    "category": "Facility"
   },
-  "Website Banner": {
-    "max": 5,
-    "exclusive": false,
-    "impressions": 75000
+  "Esports Suite Naming": {
+    "max": 1,
+    "exclusive": true,
+    "impressions": 60000,
+    "category": "Facility"
   },
-  "Email Footer": {
-    "max": 10,
-    "exclusive": false,
-    "impressions": 50000
+  "Team Suite Sponsor": {
+    "max": 6,
+    "exclusive": true,
+    "impressions": 40000,
+    "category": "Facility"
   },
-  "Social Media Post": {
-    "max": 20,
-    "exclusive": false,
-    "impressions": 25000
-  },
-  "Concession Sign": {
-    "max": 4,
-    "exclusive": false,
-    "impressions": 40000
-  },
-  "Stadium Banner": {
-    "max": 4,
-    "exclusive": false,
-    "impressions": 80000
-  },
-  "Fence Banner": {
+  "Scoreboard Ad Panel": {
     "max": 6,
     "exclusive": false,
-    "impressions": 60000
+    "impressions": 100000,
+    "category": "Facility"
   },
-  "Lobby Wall Banner": {
-    "max": 2,
+  "Stadium Wall Banner": {
+    "max": 10,
     "exclusive": false,
-    "impressions": 50000
+    "impressions": 85000,
+    "category": "Facility"
+  },
+  "Bleacher Sponsorship": {
+    "max": 6,
+    "exclusive": false,
+    "impressions": 60000,
+    "category": "Facility"
+  },
+  "Bench Sponsor": {
+    "max": 20,
+    "exclusive": false,
+    "impressions": 20000,
+    "category": "Environmental"
+  },
+  "Golf Cart Branding": {
+    "max": 6,
+    "exclusive": false,
+    "impressions": 30000,
+    "category": "Environmental"
+  },
+  "Trailhead Signage": {
+    "max": 8,
+    "exclusive": false,
+    "impressions": 40000,
+    "category": "Environmental"
+  },
+  "Walking Trail Signs": {
+    "max": 12,
+    "exclusive": false,
+    "impressions": 25000,
+    "category": "Environmental"
+  },
+  "Digital Leaderboard Logo": {
+    "max": 5,
+    "exclusive": false,
+    "impressions": 90000,
+    "category": "Digital"
+  },
+  "Mobile App Banner Ad": {
+    "max": 4,
+    "exclusive": false,
+    "impressions": 60000,
+    "category": "Digital"
+  },
+  "Social Media Series Sponsor": {
+    "max": 3,
+    "exclusive": true,
+    "impressions": 120000,
+    "category": "Digital"
+  },
+  "Email Campaign Footer": {
+    "max": 6,
+    "exclusive": false,
+    "impressions": 45000,
+    "category": "Digital"
+  },
+  "Event Tent Branding": {
+    "max": 5,
+    "exclusive": false,
+    "impressions": 35000,
+    "category": "Program"
+  },
+  "Coach Shirt Sponsor": {
+    "max": 10,
+    "exclusive": false,
+    "impressions": 30000,
+    "category": "Program"
+  },
+  "Tournament Program Full Page Ad": {
+    "max": 10,
+    "exclusive": false,
+    "impressions": 50000,
+    "category": "Program"
+  },
+  "Concession Stand Signage": {
+    "max": 4,
+    "exclusive": false,
+    "impressions": 40000,
+    "category": "Facility"
   }
 }

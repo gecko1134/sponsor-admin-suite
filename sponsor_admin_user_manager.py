@@ -3,7 +3,6 @@ import json
 import os
 
 def run():
-
     SPONSOR_DB = "sponsor_accounts.json"
 
     def load_accounts():
