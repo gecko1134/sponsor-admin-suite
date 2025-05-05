@@ -1,0 +1,52 @@
+{
+  "Dome Naming Rights": {
+    "max": 1,
+    "exclusive": true,
+    "impressions": 1000000
+  },
+  "Field Naming Rights": {
+    "max": 2,
+    "exclusive": true,
+    "impressions": 500000
+  },
+  "Scoreboard Banner": {
+    "max": 3,
+    "exclusive": false,
+    "impressions": 100000
+  },
+  "Website Banner": {
+    "max": 5,
+    "exclusive": false,
+    "impressions": 75000
+  },
+  "Email Footer": {
+    "max": 10,
+    "exclusive": false,
+    "impressions": 50000
+  },
+  "Social Media Post": {
+    "max": 20,
+    "exclusive": false,
+    "impressions": 25000
+  },
+  "Concession Sign": {
+    "max": 4,
+    "exclusive": false,
+    "impressions": 40000
+  },
+  "Stadium Banner": {
+    "max": 4,
+    "exclusive": false,
+    "impressions": 80000
+  },
+  "Fence Banner": {
+    "max": 6,
+    "exclusive": false,
+    "impressions": 60000
+  },
+  "Lobby Wall Banner": {
+    "max": 2,
+    "exclusive": false,
+    "impressions": 50000
+  }
+}

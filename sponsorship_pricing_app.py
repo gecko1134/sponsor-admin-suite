@@ -1,14 +1,15 @@
 import streamlit as st
+import json
 from pricing_calculator import calculate_sponsorship_price
 
 def run():
     st.title("💵 Sponsorship Pricing Calculator")
 
+    with open("sponsorship_assets.json", "r") as f:
+        asset_list = json.load(f)
+
     with st.form("pricing_form"):
-        asset_type = st.selectbox("Asset Type", [
-            "Dome Naming Rights", "Field Naming Rights", "Scoreboard Banner",
-            "Digital Leaderboard", "Social Media Ad Spot", "Website Featured Logo"
-        ])
+        asset_type = st.selectbox("Asset Type", asset_list)
         location = st.text_input("Location / Scope", "Entire Dome")
         base_value = st.number_input("Base Value ($)", value=10000, step=100)
         impressions = st.number_input("Estimated Impressions", value=250000, step=10000)
@@ -28,11 +29,17 @@ def run():
             tier=tier
         )
 
-        st.subheader("Deal Summary")
+        st.subheader("💰 Deal Summary")
         for key, val in result.items():
-            st.write(f"**{key}:** {val}")
+            if key == "Final Suggested Price":
+                st.write(f"**Suggested Price:** ${val:,.2f}")
+            elif key == "Market Average":
+                st.write(f"**Market Average:** ${val:,.2f}")
+            elif key == "Comparison to Market":
+                st.write(f"**Position vs Market:** {val}")
+            else:
+                st.write(f"**{key}:** {val}")
         
-        st.markdown("---")
         if result["Recommendation"].startswith("Reject"):
             st.error(result["Recommendation"])
         elif result["Recommendation"].startswith("Revise"):

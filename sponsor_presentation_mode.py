@@ -1,17 +1,18 @@
 import streamlit as st
+import json
 from pricing_calculator import calculate_sponsorship_price
 
 def run():
     st.title("🎁 Build a Sponsor Package – Live Presentation Mode")
 
+    with open("sponsorship_assets.json", "r") as f:
+        asset_list = json.load(f)
+
     with st.form("builder_form"):
         col1, col2 = st.columns(2)
 
         with col1:
-            asset_type = st.selectbox("Choose Sponsorship Asset", [
-                "Dome Naming Rights", "Field Naming Rights", "Scoreboard Banner",
-                "Website Banner", "Email Footer", "Social Media Post", "Concession Sign"
-            ])
+            asset_type = st.selectbox("Choose Sponsorship Asset", asset_list)
             location = st.text_input("Asset Location or Zone", "Main Dome")
             base_value = st.number_input("Base Value ($)", value=10000, step=100)
 
@@ -42,6 +43,8 @@ def run():
         st.write(f"**Exclusivity Level:** {exclusivity}")
         st.write(f"**Base Value:** ${base_value:,.2f}")
         st.write("---")
-        st.subheader("💰 Suggested Price:")
-        st.write(f"### **${result['Final Suggested Price']:,.2f}**")
-        st.success(f"Recommendation: {result['Recommendation']}")
+        st.subheader("💰 Pricing Breakdown")
+        st.write(f"**Suggested Price:** ${result['Final Suggested Price']:,.2f}")
+        st.write(f"**Market Average:** ${result['Market Average']:,.2f}")
+        st.write(f"**Position vs Market:** {result['Comparison to Market']}")
+        st.success(f"✅ Recommendation: {result['Recommendation']}")
