@@ -1,3 +1,8 @@
+[![Launch Sponsor Admin Suite](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gecko1134-sponsor-admin-suite.streamlit.app)
+
+**[Open Sponsor Admin Dashboard](https://gecko1134-sponsor-admin-suite.streamlit.app)**
+
+---
 # Sponsor Admin Suite
 
 [![Launch Admin Suite](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gecko1134-sponsor-admin-suite.streamlit.app)
