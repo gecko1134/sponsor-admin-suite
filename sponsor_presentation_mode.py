@@ -6,8 +6,8 @@ def run():
     st.title("🧠 AI Sponsor Package Optimizer")
 
     budget = st.number_input("Enter Budget ($)", value=25000, step=1000)
-    tier = st.selectbox("Preferred Tier", ["Bronze", "Silver", "Gold", "Presenting", "Exclusive Naming"])
-    duration = st.slider("Preferred Duration (months)", 1, 36, 12)
+    tier = st.selectbox("Preferred Tier", ["Bronze", "Silver", "Gold","Platinum", "Custom", "Presenting", "Exclusive Naming"])
+    duration = st.slider("Preferred Duration (months)", 1, 240, 12)
 
     if st.button("Generate Optimal Package"):
         result = suggest_package(budget=budget, tier=tier, preferred_duration=duration)
