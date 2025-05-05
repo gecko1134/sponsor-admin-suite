@@ -11,6 +11,7 @@ This is a secure Streamlit-based dashboard for managing sponsor accounts, pricin
 - Run AI-driven sponsorship pricing
 - Generate Word contracts from sponsor data
 - Track and export sponsor engagement logs
+- Presentation Mode for building live sponsor packages
 
 ## Run the App
 Install dependencies:

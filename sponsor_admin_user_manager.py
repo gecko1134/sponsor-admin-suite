@@ -1,10 +1,9 @@
-
 import streamlit as st
 import json
 import os
 
 def run():
-    st.set_page_config(page_title="Sponsor User Manager", layout="wide")
+
     SPONSOR_DB = "sponsor_accounts.json"
 
     def load_accounts():

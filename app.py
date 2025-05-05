@@ -1,6 +1,5 @@
 import streamlit as st
 
-# Admin credentials
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "secure123"
 
@@ -31,6 +30,7 @@ else:
         "Usage Reporter",
         "Pricing Calculator",
         "Contract Generator",
+        "Presentation Mode",
         "Logout"
     ])
 
@@ -65,3 +65,7 @@ else:
     elif section == "Contract Generator":
         import sponsorship_contract_app
         sponsorship_contract_app.run()
+
+    elif section == "Presentation Mode":
+        import sponsor_presentation_mode
+        sponsor_presentation_mode.run()

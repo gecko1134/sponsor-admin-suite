@@ -3,7 +3,6 @@ import json
 import os
 
 def run():
-    st.set_page_config(page_title="Sponsor Admin Onboarding", layout="centered")
 
     SPONSOR_DB = "sponsor_accounts.json"
 

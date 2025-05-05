@@ -3,7 +3,6 @@ from fill_sponsorship_contract import fill_contract
 from datetime import date
 
 def run():
-    st.set_page_config(page_title="Contract Generator", layout="centered")
     st.title("📄 Generate Sponsorship Agreement")
 
     sponsors = {

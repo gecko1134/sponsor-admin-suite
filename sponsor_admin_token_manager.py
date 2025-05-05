@@ -1,10 +1,8 @@
-
 import streamlit as st
 import pandas as pd
 from sponsor_reset_token_manager import generate_reset_token, load_tokens, expire_token
 
 def run():
-    st.set_page_config(page_title="Token Manager", layout="wide")
     st.title("🔐 Password Reset Token Manager")
 
     st.subheader("Generate Reset Token")

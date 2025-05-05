@@ -1,9 +1,7 @@
-
 import streamlit as st
 from pricing_calculator import calculate_sponsorship_price
 
 def run():
-    st.set_page_config(page_title="Sponsorship Pricing", layout="centered")
     st.title("💵 Sponsorship Pricing Calculator")
 
     with st.form("pricing_form"):

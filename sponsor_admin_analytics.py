@@ -1,11 +1,9 @@
-
 import streamlit as st
 import pandas as pd
 import os
 from sponsor_usage_reporter import generate_sponsor_summary_report
 
 def run():
-    st.set_page_config(page_title="Analytics & Reports", layout="wide")
     st.title("📊 Sponsor Activity Analytics & Reporting")
 
     LOG_FILE = "sponsor_usage_log.csv"
