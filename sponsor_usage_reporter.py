@@ -17,3 +17,16 @@ def generate_sponsor_summary_report(log_path="sponsor_usage_log.csv", group_by="
     pivot = summary.pivot_table(index=["Period", "Sponsor Email"], columns="Action", values="Count", fill_value=0).reset_index()
 
     return pivot, "Report generated."
+
+def run():
+    st.title("📊 Usage Report Generator")
+    log_path = "sponsor_usage_log.csv"
+    group_by = st.selectbox("Group by", ["month", "week"])
+    summary_df, msg = generate_sponsor_summary_report(log_path, group_by)
+
+    if summary_df.empty:
+        st.warning(msg)
+    else:
+        st.dataframe(summary_df)
+        csv = summary_df.to_csv(index=False).encode("utf-8")
+        st.download_button("📥 Download CSV", csv, file_name="sponsor_summary.csv", mime="text/csv")
