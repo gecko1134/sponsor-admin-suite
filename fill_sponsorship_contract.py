@@ -14,7 +14,7 @@ def run():
     sponsor = st.text_input("Sponsor Name")
     asset = st.selectbox("Sponsored Asset", assets)
     tier = st.selectbox("Tier Level", tiers)
-    duration = st.slider("Contract Duration (months)", 1, 36, 12)
+    duration = st.slider("Contract Duration (months)", 1, 360, 12)
 
     base_price = {
         "Court": 6500, "Turf (Half)": 8000, "Turf (Full)": 15000,
@@ -30,10 +30,14 @@ def run():
 
     base = base_price.get(asset, 3000)
     price = base * (duration / 12) * tier_multiplier.get(tier, 1.0)
+    annual_price = price / (duration / 12) if duration else 0
+    monthly_price = price / duration if duration else 0
 
-    st.metric("Suggested Contract Value", f"${price:,.0f}")
+    st.metric("Total Contract Value", f"${price:,.0f}")
+    st.metric("Price Per Year", f"${annual_price:,.0f}")
+    st.metric("Monthly Avg Cost", f"${monthly_price:,.0f}")
+
     notes = st.text_area("Additional Notes or Deliverables")
-
     if st.button("Generate Summary"):
         st.success(f"Contract for {sponsor} confirmed.")
         st.markdown(f"**Asset:** {asset} | **Tier:** {tier} | **Duration:** {duration} months")
