@@ -1,48 +1,12 @@
+
 import streamlit as st
-import json
-from pricing_calculator import calculate_sponsorship_price
 
 def run():
-    st.title("💵 Sponsorship Pricing Calculator")
-
-    with open("sponsorship_assets.json", "r") as f:
-        asset_list = json.load(f)
-
-    with st.form("pricing_form"):
-        asset_type = st.selectbox("Asset Type", asset_list)
-        location = st.text_input("Location / Scope", "Entire Dome")
-        base_value = st.number_input("Base Value ($)", value=10000, step=100)
-        impressions = st.number_input("Estimated Impressions", value=250000, step=10000)
-        exclusivity_level = st.slider("Exclusivity Level (0 = Shared, 5 = Fully Exclusive)", 0, 5, value=3)
-        duration_months = st.number_input("Duration (months)", min_value=1, max_value=240, value=12)
-        tier = st.selectbox("Sponsorship Tier", ["Bronze", "Silver", "Gold", "Platinum", "Presenting", "Exclusive Naming"])
-        submitted = st.form_submit_button("Calculate Price")
-
-    if submitted:
-        result = calculate_sponsorship_price(
-            asset_type=asset_type,
-            location=location,
-            base_value=base_value,
-            impressions=impressions,
-            exclusivity_level=exclusivity_level,
-            duration_months=duration_months,
-            tier=tier
-        )
-
-        st.subheader("💰 Deal Summary")
-        for key, val in result.items():
-            if key == "Final Suggested Price":
-                st.write(f"**Suggested Price:** ${val:,.2f}")
-            elif key == "Market Average":
-                st.write(f"**Market Average:** ${val:,.2f}")
-            elif key == "Comparison to Market":
-                st.write(f"**Position vs Market:** {val}")
-            else:
-                st.write(f"**{key}:** {val}")
-
-        if result["Recommendation"].startswith("Reject"):
-            st.error(result["Recommendation"])
-        elif result["Recommendation"].startswith("Revise"):
-            st.warning(result["Recommendation"])
-        else:
-            st.success(result["Recommendation"])
+    st.title("💰 Sponsorship Pricing App")
+    asset = st.selectbox("Asset Type", ["Court", "Dome", "Team Suite", "Digital Ad", "Event"])
+    base_price = {"Court": 6500, "Dome": 25000, "Team Suite": 8000, "Digital Ad": 3000, "Event": 5000}
+    duration = st.slider("Duration (months)", 1, 36, 12)
+    tier = st.selectbox("Tier", ["Bronze", "Silver", "Gold", "Platinum", "Title Partner"])
+    tier_multiplier = {"Bronze": 0.9, "Silver": 1.0, "Gold": 1.25, "Platinum": 1.5, "Title Partner": 2.0}
+    price = base_price.get(asset, 3000) * (duration / 12) * tier_multiplier[tier]
+    st.metric("Suggested Price", f"${price:,.0f}")
