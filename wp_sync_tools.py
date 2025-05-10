@@ -1,5 +1,5 @@
 import streamlit as st
 
 def run():
-    st.title('Sponsor Admin User Manager')
+    st.title('WordPress Sync Tools')
     st.markdown('Module loaded successfully.')
